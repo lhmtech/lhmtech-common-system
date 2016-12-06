@@ -5,8 +5,8 @@ import groovy.json.JsonBuilder
 /**
  * Created by lihe on 16-11-15.
  */
-class FileUtility {
-    void saveAsJson(String folder, String file, Object product) {
+final class FileUtility {
+    static void saveAsJson(String folder, String file, Object product) {
         ensureFolder(folder)
         String fullFilePath = combinePath(folder, file)
         BufferedWriter writer = new File(fullFilePath).newWriter()
@@ -14,13 +14,13 @@ class FileUtility {
         writer.close()
     }
 
-    String combinePath(String parent, String subPath) {
+    static String combinePath(String parent, String subPath) {
         File parentFile = new File(parent);
         File subFile = new File(parentFile, subPath);
         return subFile.getPath();
     }
 
-    void ensureFolder(String folder) {
+    static void ensureFolder(String folder) {
         File fileObject = new File(folder)
         if (!fileObject.exists()) {
             fileObject.mkdirs()
