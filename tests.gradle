@@ -19,9 +19,9 @@ dependencies {
 }
 
 sourceSets {
-    blackboxSource {
-        groovy { srcDirs = ['src/blackbox/groovy'] }
-        resources.srcDir file('src/blackbox/resources')
+    acceptance {
+        groovy { srcDirs = ['src/acceptance/groovy'] }
+        resources.srcDir file('src/acceptance/resources')
         compileClasspath += sourceSets.test.compileClasspath
         runtimeClasspath += sourceSets.test.runtimeClasspath
     }
@@ -37,21 +37,21 @@ test {
     }
 }
 
-task runBlackboxTests(type: Test, dependsOn: assemble) {
-    description = 'Run blackbox tests'
+task runAcceptanceTests(type: Test, dependsOn: assemble) {
+    description = 'Run acceptance tests'
     outputs.upToDateWhen { false }
-    testClassesDir = sourceSets.blackboxSource.output.classesDir
-    classpath = sourceSets.blackboxSource.runtimeClasspath
+    testClassesDir = sourceSets.acceptance.output.classesDir
+    classpath = sourceSets.acceptance.runtimeClasspath
     reports.junitXml.destination = 'build/test-results'
-    reports.html.destination = 'build/reports/blackboxTests'
+    reports.html.destination = 'build/reports/acceptanceTests'
     afterSuite { desc, result ->
         if (!desc.parent) {
-            println "Blackbox result: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} succeeded, ${result.failedTestCount} failed, ${result.skippedTestCount} skipped)"
+            println "Acceptance result: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} succeeded, ${result.failedTestCount} failed, ${result.skippedTestCount} skipped)"
         }
     }
 
 
 }
 
-test.finalizedBy(runBlackboxTests)
+test.finalizedBy(runAcceptanceTests)
 

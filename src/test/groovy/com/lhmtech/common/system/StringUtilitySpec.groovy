@@ -6,7 +6,7 @@ import spock.lang.Unroll
 /**
  * Created by lihe on 16-12-6.
  */
-class StringUtilityTest extends Specification {
+class StringUtilitySpec extends Specification {
     @Unroll
     def "get first #source - #n from string"() {
         when:
