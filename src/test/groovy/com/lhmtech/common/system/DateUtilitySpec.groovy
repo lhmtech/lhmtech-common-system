@@ -5,7 +5,7 @@ import spock.lang.Specification
 /**
  * Created by lihe on 16-12-6.
  */
-class DateUtilityTest extends Specification {
+class DateUtilitySpec extends Specification {
     def "years ago"() {
         given:
         def year = 1

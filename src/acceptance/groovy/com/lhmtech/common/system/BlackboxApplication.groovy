@@ -6,10 +6,10 @@ import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
 @ComponentScan(basePackages = ["com.lhmtech.common.system"] )
-class BlackboxApplication {
+class AcceptanceApplication {
 
 	//this is for test
 	static void main(String[] args) {
-		SpringApplication.run BlackboxApplication, args
+		SpringApplication.run AcceptanceApplication, args
 	}
 }

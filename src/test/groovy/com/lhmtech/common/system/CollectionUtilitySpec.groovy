@@ -6,7 +6,7 @@ import spock.lang.Unroll
 /**
  * Created by lihe on 16-9-28.
  */
-class CollectionUtilityTest extends Specification {
+class CollectionUtilitySpec extends Specification {
 
     @Unroll
     def "take"() {

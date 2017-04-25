@@ -6,7 +6,7 @@ import spock.lang.Unroll
 /**
  * Created by lihe on 16-11-15.
  */
-class FileUtilityTest extends Specification {
+class FileUtilitySpec extends Specification {
     String folder = './build/ioHelper'
 
     def cleanup() {
